@@ -9,9 +9,13 @@ const db = mysql.createConnection({
     user: 'root',
     password: 'root',
     database: ''
-    }, 
+    },
     console.log('connected to the database')
 ); 
+
+db.query('SELECT id, first_name FROM students', function(err,results){
+    results.json(results)
+});
 //     -Reference Activities that do the same thing -- these are in the server.js file usually
 //     - Import mysql2 into the connection file
 //     - Export your connection to the db
