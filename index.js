@@ -5,16 +5,6 @@ require('dotenv').config();
 const { allDepts } = require('./queryFunctions')
 // Connect to database
 
-const db = mysql.createConnection(
-    {
-        host: 'localhost',
-        // MySQL username,
-        user: 'root',
-        password: 'root',
-        database: 'employee_db'
-    },
-    console.log(`Connected to the database.`)
-);
 const options = ["ALL_DEPT", "ALL_ROLES"];
 function startApp() {
     inquirer.prompt([
@@ -22,21 +12,21 @@ function startApp() {
             type: "list",
             name: "userview",
             message: "What you want to see?",
-            choices: opt
+            choices: options
         }
     ])
-    //     .then((ans) => {
-    //         // console.log(ans);
-    //         switch (ans.userview) {
-    //             case opt[0]:
-    //                 // queryFunctions.allDepts();
-    //                 allDepts();
-    //                 break;
+        .then((ans) => {
+            // console.log(ans);
+            switch (ans.userview) {
+                case options[0]:
+                    // queryFunctions.allDepts();
+                    allDepts();
+                    break;
 
-    //             default:
-    //                 break;
-    //         }
-    //     })
+                default:
+                    break;
+            }
+        })
 }
 
 startApp();
