@@ -10,23 +10,27 @@ const db = mysql.createConnection(
     console.log(`Connected to the database.`)
 );
 
-const du = require('./index.js');
-
 function allDepts() {
-    // db.connect{('SELECT * FROM department', function (err, results) {
-    //     console.log(results);
-    //     startApp()
-    // })
-
     db.connect(function(err){
         if(err) throw err;
         db.query('SELECT * FROM department', function(err, result){
-            console.log(result)
-        })
+            console.log(result);
+            if(err) throw err;
+        });
     });
 };
 
+function allRoles(){
+    db.connect(function(err){
+        if(err) throw err;
+        db.query('SELECT * FROM employees', function(err,result){
+            console.log(result);
+            if(err) throw err;
+        })
+    })
+}
 
 module.exports = {
-    allDepts
+    allDepts,
+    allRoles
 }
