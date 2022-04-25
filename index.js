@@ -1,6 +1,7 @@
+const package=require('dotenv').config();
 // const mysql = require('mysql2');
 const inquirer = require('inquirer');
-require('dotenv').config();
+
 // const queryFunctions = require('./queryFunctions')
 const { allDepts } = require('./queryFunctions')
 // Connect to database
@@ -19,7 +20,6 @@ function startApp() {
             // console.log(ans);
             switch (ans.userview) {
                 case options[0]:
-                    // queryFunctions.allDepts();
                     allDepts();
                     break;
 
@@ -31,11 +31,5 @@ function startApp() {
 
 startApp();
 
-// function allDepts() {
-//     db.query('SELECT * FROM department', function (err, results) {
-//         console.log(results);
-//         startApp();
-//     });
-// }
 
 
