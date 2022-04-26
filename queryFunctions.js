@@ -25,7 +25,7 @@ function allDepts() {
 function allRoles(){
     db.connect(function(err){
         if(err) throw err;
-        db.query('SELECT * FROM employees', function(err,result){
+        db.query('SELECT * FROM positions', function(err,result){
             console.table(result);
             // create formatted table showing data
             if(err) throw err;
@@ -34,22 +34,27 @@ function allRoles(){
 }
 
 function allEmployees(){
-    db.connect(function(err){
-        if(err) throw err;
-        // fix select so that it is the right data
-        db.query('SELECT * FROM employees', function(err,result){
-            console.table(result);
-            // create formatted table showing data
-            if(err) throw err;
-        })
-    })
+    db.connect(function(err) {
+        if (err) throw err;
+        var sql = "SELECT * FROM employee"
+        db.query(sql, function (err, result) {
+          if (err) throw err;
+          console.table(result);
+        });
+      });
+}
+
+function addDepartment(ans){
+    db.query('INSERT INTO department SET ?', (ans))
+    console.log("We added your department!")
 }
 
 function addRole(ans){
-    db.query('INSERT INTO employees (role_name) VALUES (ans)',function(err,result){
-        console.log("We added the role!");
-        console.log(ans);
-    })
+    db.query('INSERT INTO positions SET ?', (ans));
+    console.log("We added the role!");
+    // function(err,result){
+    //     console.log(ans);}
+    // )
 }
 
 function addEmployee(){
@@ -64,6 +69,7 @@ module.exports = {
     allDepts,
     allRoles, 
     allEmployees,
+    addDepartment,
     addEmployee,
     updateEmployee,
     addRole
