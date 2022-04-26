@@ -50,19 +50,19 @@ function addDepartment(ans){
 }
 
 function addRole(ans){
-    db.query('INSERT INTO positions SET ?', (ans));
+    db.query('INSERT INTO positions SET ?', (ans))
     console.log("We added the role!");
     // function(err,result){
     //     console.log(ans);}
     // )
 }
 
-function addEmployee(){
-
+function addEmployee(ans){
+    db.query('INSERT INTO employee SET ?', (ans))
 }
 
-function updateEmployee(){
-
+function updateEmployee(ans){
+    db.query('UPDATE employee SET ?', ans)
 }
 
 module.exports = {

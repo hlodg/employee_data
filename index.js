@@ -63,11 +63,59 @@ function startApp() {
                     break;
                 
                 case options[5]:
-                    addEmployee();
+                    inquirer
+                    .prompt([
+                        {
+                            type: "input",
+                            name: "first_name",
+                            message: "What is thier first name?"
+                        },
+                        {
+                            type: "input",
+                            name: "last_name",
+                            message: "What is their last name?"
+                        },
+                        {
+                            type: "input",
+                            name: "role_id",
+                            message: "What is thier role id?"
+                        },
+                        {
+                            type: "input",
+                            name: "manager_id",
+                            message: "What is thier manager's id?"
+                        }
+                    ]).then((ans)=>{
+                        addEmployee(ans)
+                    });
                     break;
                 
                 case options[6]:
-                    updateEmployee();
+                    inquirer
+                    .prompt([
+                        {
+                            type: "input",
+                            name: "first_name",
+                            message: "What is thier first name?"
+                        },
+                        {
+                            type: "input",
+                            name: "last_name",
+                            message: "What is their last name?"
+                        },
+                        {
+                            type: "input",
+                            name: "role_id",
+                            message: "What is thier role id?"
+                        },
+                        {
+                            type: "input",
+                            name: "manager_id",
+                            message: "What is thier manager's id?"
+                        }
+                    ]).then((ans)=>{
+                        updateEmployee(ans)
+                    });
                     break;
 
                 default:
