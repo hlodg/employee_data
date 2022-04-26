@@ -1,10 +1,8 @@
 const package=require('dotenv').config();
 const inquirer = require('inquirer');
 
-// const queryFunctions = require('./queryFunctions')
 const { allDepts, allRoles, allEmployees, addDepartment, addRole, updateEmployee, addEmployee} = require('./queryFunctions');
-// const { allRoles } = require('./queryFunctions');
-// Connect to database
+
 
 const options = ["ALL_DEPT", "ALL_ROLES", "ALL EMPLOYEES", "ADD_DEPT", "ADD_ROLE", "ADD_EMPLOYEE", "UPDATE_EMPLOYEE_ROLE"];
 function startApp() {
